@@ -126,7 +126,7 @@ Switch  kitchenout1     "Люстра кухня"      <lamp>        {channel="m
 Bridge megad:tcp:incoming [port=8989]
 {
     Bridge device mega1 "MegaD1 controller" [hostname="192.168.0.14", password="sec"] {
-        Bridge 1wirebus owbus1 "Bus1 mega1" [port="0", refresh="30"]{
+        Bridge 1wirebus owbus1 "OneWireBus1 mega1" [port="0", refresh="30"]{
            Thing 1wireaddress temp1 "Датчик1" [address="c6f479a20003"]
            Thing 1wireaddress temp2 "Датчик2" [address="e6f479a20055"]
            ...
@@ -157,7 +157,7 @@ Number tempSens2 "Датчик2 [%.1f °C]" <temperature> {channel="megad:1wirea
 Bridge megad:tcp:incoming [port=8989]
 {
     Bridge device mega1 "MegaD1 controller" [hostname="192.168.0.14", password="sec"] {
-        Bridge itoc i2cbus1 "Bus1 mega1" [port="30", scl="31"]{
+        Bridge itoc i2cbus1 "I2CBus1 mega1" [port="30", scl="31"]{
             Thing i2cbussensor light1 "Датчик освещенности" [sensortype="max44009", refresh="30"]
             Thing i2cbussensor sens1  "Датчик темп и влаж"  [sensortype="sht31", refresh="30"]
             ...
@@ -223,12 +223,12 @@ Bridge megad:tcp:incoming [port=8989]{
         Thing standard onewire1        "Датчик1"       [port="3", refresh="10"]
         Thing standard kitchenout1     "Люстра кухня"  [port="10", refresh="0"]
 
-        Bridge 1wirebus owbus1 "Bus1 mega1" [port="0", refresh="30"]{
+        Bridge 1wirebus owbus1 "OneWireBus1 mega1" [port="0", refresh="30"]{
            Thing 1wireaddress temp1 "Датчик1" [address="c6f479a20003"]
            Thing 1wireaddress temp2 "Датчик2" [address="e6f479a20055"]
         }
 
-        Bridge itoc i2cbus1 "Bus1 mega1" [port="30", scl="31"]{
+        Bridge itoc i2cbus1 "I2CBus1 mega1" [port="30", scl="31"]{
             Thing i2cbussensor light1 "Датчик освещенности" [sensortype="max44009", refresh="30"]
             Thing i2cbussensor sens1  "Датчик темп и влаж"  [sensortype="sht31", refresh="30"]
         }
